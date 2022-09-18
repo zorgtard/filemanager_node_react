@@ -1,0 +1,41 @@
+* {
+  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.file-manager {
+  width: 500px;
+  padding: 10px;
+  margin: 20px auto;
+  border: 1px solid rgb(128, 128, 128);
+}
+
+a {
+  color: #5f6368;
+}
+
+.folder-list {
+  list-style-type: none;
+}
+
+.folder-list li {
+ padding: 5px;
+ margin-bottom: 5px;
+}
+
+
+ul.folder-list li:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+span.material-icons {
+  position: relative;
+  bottom: -5px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.current-level {
+  text-align: center;
+  margin: 20px 0;
+}
