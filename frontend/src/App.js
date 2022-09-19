@@ -65,8 +65,10 @@ function App() {
                     </li>
           } else {
             return  <li key={item.name} className="file">
-                        <span className="material-icons">&#xe873;</span>
-                        {item.name}
+                        <a href={data.path+'/'+item.name} download>
+                          <span className="material-icons">&#xe873;</span>
+                          {item.name}
+                        </a>
                     </li>
           }
         })}
