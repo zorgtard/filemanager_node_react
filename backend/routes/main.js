@@ -1,6 +1,5 @@
 // routing main /
 const fs = require('fs');
-const path_module = require('path');
 module.exports = function(app) {
     app.get('/', (req,res) => {
         const base = './files';
@@ -13,9 +12,7 @@ module.exports = function(app) {
             //если преданный параметр - папка    
             let files = fs.readdirSync(base+path).map(item => {
                 const isDir = fs.lstatSync(base+path + '/' + item).isDirectory();
-                let size = 0;
-                let real_path = '';
-                let download = '';
+                let size = 0;            
                 if (!isDir) {
                     size = fs.lstatSync(base+path + '/' + item);                
                                            
