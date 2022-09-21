@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
+import download from 'js-file-download';
+import axios from 'axios';
 
 function App() {
   const [parent, setParent] = useState('');
@@ -39,6 +41,14 @@ function App() {
           }
         );
   }
+  const clickDownloadFile = event => {
+    event.preventDefault();    
+    let file_name = event.target.attributes.href.value.split('/').pop();
+    axios.get("http://localhost:8000/getfile/?file="+event.target.attributes.href.value)
+      .then(resp => {        
+             download(resp.data, file_name);
+      });
+ }
 
   return (
     <div className="file-manager">
@@ -65,7 +75,7 @@ function App() {
                     </li>
           } else {
             return  <li key={item.name} className="file">
-                        <a href={data.path+'/'+item.name} download>
+                        <a href={data.path+'/'+item.name} onClick={clickDownloadFile}>
                           <span className="material-icons">&#xe873;</span>
                           {item.name}
                         </a>
